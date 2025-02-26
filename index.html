@@ -9,13 +9,13 @@
 </head>
 <body onload="myFunction()">
     <div class="container">
+        <h2>당신의 총 방문 횟수: <span id="visit-count">0</span></h2>
         <form name="gen" class="form">
             <a class="title" style="font-family: ONE Mobile POP;">트친표 작성하기</a>
             <br>
             <br>
             <br>
             <img src="./background/images/play.png" onclick="playsound()" style="width: 40px; height: auto;" class="icon"> 
-            <!-- 상대경로 -->
             <p>↑</p>
             <p class="note">한번만 눌러주세여</p>
             <br>
@@ -139,5 +139,28 @@
     </div>
     
     <script src="index.js"></script>
+    <script>
+        function getCookie(name) {
+            let matches = document.cookie.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
+            return matches ? decodeURIComponent(matches[1]) : null;
+        }
+
+        function setCookie(name, value, days) {
+            let date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + date.toUTCString() + "; path=/";
+        }
+
+        let visitCount = getCookie("visitCount");
+
+        if (visitCount === null) {
+            visitCount = 1;
+        } else {
+            visitCount = parseInt(visitCount) + 1;
+        }
+
+        setCookie("visitCount", visitCount, 30);
+        document.getElementById("visit-count").innerText = visitCount;
+    </script>
 </body>
 </html>
