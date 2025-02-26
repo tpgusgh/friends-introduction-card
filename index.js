@@ -1,5 +1,4 @@
-import { Analytics } from "@vercel/analytics/react"
-<Analytics />
+
 function handleMapChange(){
     var gen = document.forms["gen"];
     var characterSelect = gen.character;
