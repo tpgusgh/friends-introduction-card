@@ -451,7 +451,7 @@ function doyouhave() {
 
 
 
-    // 새로운 페이지로 데이터 전송 (GET 방식으로 URL에 포함)
+    // 새로운 페이지로 데이터 전송 
     var url = "output.html?map=" + encodeURIComponent(map) + 
     "&gameid=" + encodeURIComponent(gameid) + 
     "&character=" + encodeURIComponent(character) + 
